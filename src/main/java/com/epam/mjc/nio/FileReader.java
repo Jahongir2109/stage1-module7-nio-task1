@@ -17,7 +17,7 @@ public class FileReader {
                 map.put(str.substring(0,str.indexOf(": ")),str.substring(str.indexOf(": ")+2));
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new MyCustomException(e.getMessage());
         }
         return new Profile(map.get("Name"),Integer.valueOf(map.get("Age")),map.get("Email"),Long.valueOf(map.get("Phone")));
     }
